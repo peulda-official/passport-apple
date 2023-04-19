@@ -154,8 +154,8 @@ describe('AppleStrategy', () => {
                     done();
                 })
                 .request(function (req) {
-                    req.body = {};
-                    req.body.error = 'user_cancelled_authorize';
+                    req.query = {};
+                    req.query.error = 'user_cancelled_authorize';
                 })
                 .authenticate();
         });
@@ -206,7 +206,7 @@ describe('AppleStrategy', () => {
             return oauth2;
         };
 
-        xdescribe('with req.body as object', () => {
+        xdescribe('with req.query as object', () => {
             let user;
 
             before(function (done) {
@@ -217,11 +217,11 @@ describe('AppleStrategy', () => {
                         done();
                     })
                     .request(function (req) {
-                        req.body = {};
-                        req.body.user = {
+                        req.query = {};
+                        req.query.user = {
                             name: { firstName: 'John', lastName: 'Appleseed' }
                         };
-                        req.body.code = 'SplxlOBeZQQYbYS6WxSbIA+ALT1';
+                        req.query.code = 'SplxlOBeZQQYbYS6WxSbIA+ALT1';
                     })
                     .authenticate();
             });
@@ -234,7 +234,7 @@ describe('AppleStrategy', () => {
             });
         });
 
-        xdescribe('with req.body as string', () => {
+        xdescribe('with req.query as string', () => {
             let user;
 
             before(function (done) {
@@ -245,11 +245,11 @@ describe('AppleStrategy', () => {
                         done();
                     })
                     .request(function (req) {
-                        req.body = {};
-                        req.body.user = JSON.stringify({
+                        req.query = {};
+                        req.query.user = JSON.stringify({
                             name: { firstName: 'John', lastName: 'Appleseed' }
                         });
-                        req.body.code = 'SplxlOBeZQQYbYS6WxSbIA+ALT1';
+                        req.query.code = 'SplxlOBeZQQYbYS6WxSbIA+ALT1';
                     })
                     .authenticate();
             });
@@ -295,8 +295,8 @@ describe('AppleStrategy', () => {
                     done();
                 })
                 .request(function (req) {
-                    req.body = {};
-                    req.body.code = 'SplxlOBeZQQYbYS6WxSbIA+ALT1';
+                    req.query = {};
+                    req.query.code = 'SplxlOBeZQQYbYS6WxSbIA+ALT1';
                 })
                 .authenticate();
         });
